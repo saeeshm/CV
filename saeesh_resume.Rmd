@@ -1,0 +1,140 @@
+---
+title: "saeesh_resume"
+author: "Saeesh Mangwani"
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/resume.css']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: false
+---
+<!--- start of code for font awesome--->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+<!--- end of code for font awesome--->
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+library(tidyverse)
+library(glue)
+library(rmarkdown)
+
+# ======================================================================
+# These variables determine how the the data is loaded and how the exports are
+# done.
+
+# Is data stored in google sheets? If no data will be gather from the csvs/
+# folder in project
+using_googlesheets <- TRUE
+
+# Just the copied URL from the sheet
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1Z3Eu2Tjx7zgI9mTzMUi_EhieOOELmJKj7CXjGc9Iyfg/edit?usp=sharing"
+
+# Is this sheet available for anyone to read? If you're using a private sheet
+# set this to false and go to gather_data.R and run the data loading manually
+# once to cache authentication
+sheet_is_publicly_readable <- TRUE
+
+# Is the goal of this knit to build a document that is exported to PDF? If so
+# set this to true to have links turned into footnotes at the end of the
+# document
+PDF_EXPORT <- FALSE
+
+
+# A global (gasp) variable that holds all the links that were inserted for
+# placement at the end
+links <- c()
+
+# ======================================================================
+# Now we source two external scripts. One contains functions for building the
+# text output and the other loads up our data from either googlesheets or csvs
+
+# Functions for building sections from CSV data
+source('parsing_functions.R') 
+
+# Load data for CV/Resume
+source('gather_data.R')
+
+# Now we just need to filter down the position data to include less verbose
+# categories and only the entries we have designated for the resume
+position_data <- position_data %>% 
+  filter(in_resume)
+```
+
+Aside
+================================================================================
+
+## CONTACT
+
+```{r}
+contact_info %>% 
+  glue_data("- <i class='fa fa-{icon}'></i> {contact}", .sep="\n")
+```
+
+## SKILLS
+```{r}
+skills %>% 
+  glue_data("- <i class='{icon}'></i> {skill} \n\n")
+```
+
+## LANGUAGES
+
+**English:** Native
+
+**Hindi:** Native
+
+**Spanish:** Beginner
+
+<br>
+
+<!-- Disclaimer {#disclaimer} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- This resume was developed using the R package [**pagedown**](https://github.com/rstudio/pagedown). -->
+
+<!-- Last updated on `r Sys.Date()`. -->
+
+Main
+================================================================================
+
+Saeesh Mangwani {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+print_text_block(text_blocks, 'intro')
+```
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('education')
+```
+
+Selected Work Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('work_experience')
+```
+
+<!-- GIS Experience {data-icon=globe} -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ```{r} -->
+<!-- position_data %>% print_section('gis_experience') -->
+<!-- ``` -->
+
+Lab Experience {data-icon=flask}
+--------------------------------------------------------------------------------
+```{r}
+position_data %>% print_section('lab_experience')
+```
+
+Selected Personal Projects {data-icon=share-alt}
+--------------------------------------------------------------------------------
+```{r}
+position_data %>% print_section('personal_initiatives')
+```
+
