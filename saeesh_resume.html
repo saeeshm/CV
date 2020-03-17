@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Saeesh Mangwani" />
-    <meta name="date" content="2020-03-03" />
+    <meta name="date" content="2020-03-17" />
     <title>saeesh_resume</title>
 
     
@@ -17,16 +17,18 @@
     <script src="saeesh_resume_files/paged-0.8/js/paged.js"></script>
     <script src="saeesh_resume_files/paged-0.8/js/hooks.js"></script>
     
-        <link rel="stylesheet" href="css\resume.css" type="text/css" />
+        <link rel="stylesheet" href="resume.css" type="text/css" />
     
   </head>
   <body>
 
-<!--- start of code for font awesome--->
+<!--- start of code for importing the font awesome set of styles--->
 <p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 <!--- end of code for font awesome---></p>
+<!-- Creating the aside section of the CV  -->
 <div id="aside" class="section level1">
 <h1>Aside</h1>
+<!-- Using contact data pulled from the google docs to glue an html list that adds contact info -->
 <div id="contact" class="section level2">
 <h2>CONTACT</h2>
 <ul>
@@ -36,6 +38,7 @@
 <li><i class='fa fa-github'></i> github.com/saeeshm</li>
 <li><i class='fa fa-linkedin'></i> linkedin.com/in/saeeshm</li>
 </ul>
+<!-- Adding skills the same way -->
 </div>
 <div id="skills" class="section level2">
 <h2>SKILLS</h2>
@@ -47,6 +50,7 @@
 <li><p><i class='fas fa-database'></i> SQL</p></li>
 <li><p><i class='fas fa-laptop-code'></i> Web Dev (JS, HTML, CSS)</p></li>
 </ul>
+<!-- # Adding languages manually -->
 </div>
 <div id="languages" class="section level2">
 <h2>LANGUAGES</h2>
@@ -54,17 +58,22 @@
 <p><strong>Hindi:</strong> Native</p>
 <p><strong>Spanish:</strong> Beginner</p>
 <p><br></p>
-<!-- Disclaimer {#disclaimer} -->
-<!-- -------------------------------------------------------------------------------- -->
-<!-- This resume was developed using the R package [**pagedown**](https://github.com/rstudio/pagedown). -->
-<!-- Last updated on 2020-03-03. -->
+<!-- # Adding an acknowledgement section (kept the disclaimer tag so as to not have to over-edit the css) -->
+</div>
+<div id="disclaimer" class="section level2">
+<h2>Acknowledgement</h2>
+<p>This resume was developed using the R package <a href="https://github.com/rstudio/pagedown"><strong>pagedown</strong></a>.</p>
+<p>Last updated on 2020-03-17.</p>
+<!-- The main body of the cv -->
 </div>
 </div>
 <div id="main" class="section level1">
 <h1>Main</h1>
+<!-- # Name and description -->
 <div id="title" class="section level2">
 <h2>Saeesh Mangwani</h2>
 <p>I am a Bachelor’s Student in Environment, Development and Urban Geography, with a focus in environmental design and policy. I am also interested in data and the computational sciences, particularly with regard to questions of data accountability, transparency and ethics in policy and design processes.</p>
+<!-- Education information -->
 </div>
 <div id="education" class="section level2" data-icon="graduation-cap" data-concise="true">
 <h2>Education</h2>
@@ -86,6 +95,7 @@
 <ul>
 <li>Recipient of the Mahindra-Davis Scholarship Award for the year 2016.</li>
 </ul>
+<!-- Selected ork experience information (Selection done using a TRUE-FALSE column in the google doc) -->
 </div>
 </div>
 <div id="selected-work-experience" class="section level2" data-icon="suitcase">
@@ -139,44 +149,58 @@
 <li>Updated a database on Environmental programs at universities worldwide and used it to conduct a comparative evaluation of the MSE’s pedagogy.</li>
 <li>Wrote a summative report on the MSE’s comparative strengths and weaknesses in order to define future steps.</li>
 </ul>
-<!-- GIS Experience {data-icon=globe} -->
-<!-- -------------------------------------------------------------------------------- -->
-<!-- ```{r} -->
-<!-- position_data %>% print_section('gis_experience') -->
-<!-- ``` -->
+<!-- GIS Experience (Can be removed or added through commmenting out as per need) -->
 </div>
 </div>
-<div id="lab-experience" class="section level2" data-icon="flask">
-<h2>Lab Experience</h2>
-<div id="agri-452-water-resources-in-barbados" class="section level3">
-<h3>AGRI 452: Water Resources in Barbados</h3>
-<p>AGRI 452: Water Resources in Barbados</p>
+<div id="gis-experience" class="section level2" data-icon="globe">
+<h2>GIS Experience</h2>
+<div id="geog-307-socio-economic-applications-of-gis" class="section level3">
+<h3>GEOG 307: Socio-Economic Applications of GIS</h3>
 <p>McGill University</p>
+<p>Montreal, QC, Canada</p>
+<p>2020</p>
+<ul>
+<li>Applying GIS tools to social science problems, and examining the successes and limitations of the use of these tools so far.</li>
+<li>Doing a series of labs involving skills such as geodemographics, network analysis, location allocation, and so on.</li>
+<li>Conducting a personal project building a web-based geospatial platform for citizen-reported data on protests in India.</li>
+</ul>
+</div>
+<div id="geog-384-principles-of-the-geospatial-web" class="section level3">
+<h3>GEOG 384: Principles of the Geospatial Web</h3>
+<p>McGill University</p>
+<p>Montreal, QC, Canada</p>
+<p>2020</p>
+<ul>
+<li>Learning about the growth of dynamic geospatial data on the web, in contrast with traditional self-contained GIS systems that have so far been the norm.</li>
+<li>Doing a series of labs involving skills such as building geospatial web and mobile applications, using geospatial APIs, gathering, writing and manipulating location data, and so on.</li>
+</ul>
+</div>
+<div id="urbp-508-sustainable-development-plans" class="section level3">
+<h3>URBP 508: Sustainable Development Plans</h3>
+<p>McGill University</p>
+<p>Montreal, QC, Canada</p>
 <p>2019</p>
 <ul>
-<li>Compared compliance with water quality parameters for water from three different sources on the island of Barbados.</li>
-<li>Used a wet lab to assess water samples for alkalinity, turbidity and fecal coliforms and compared results to regulatory standards.</li>
+<li>Created a development plan for a residential community in the Rock Hall neighbourhood of Barbados.</li>
+<li>Used QGIS as part of an extensive site analysis, which including examining and reporting land use patterns, wind patterns, rainfall patterns, and site elevation modelling.</li>
 </ul>
 </div>
-<div id="biol-432-limnology" class="section level3">
-<h3>BIOL 432: Limnology</h3>
-<p>BIOL 432: Limnology</p>
+<div id="geog-201-introductory-geo-information-science" class="section level3">
+<h3>GEOG 201: Introductory Geo-Information Science</h3>
 <p>McGill University</p>
+<p>Montreal, QC, Canada</p>
 <p>2018</p>
 <ul>
-<li>Worked at the Gault Nature Reserve to examine how changes in light intensity affect the composition of planktonic species in lake surface waters.</li>
-<li>Set up mesocosms at Lac Hertel to apply differential shading treatments. Used a wet lab to look for the chemical signatures of varipus planktonic species to assess composition changes based on light intensity changes.</li>
+<li>Learned about types of geospatial, methods and issues in Cartography and tools for manipulating geodata.</li>
+<li>Did a series of GIS labs that involved skills such as georeferencing, vector geoprocessing, DEM manipulation and so on.</li>
 </ul>
-</div>
-<div id="biol-111-organismal-biology" class="section level3">
-<h3>BIOL 111: Organismal Biology</h3>
-<p>BIOL 111: Organismal Biology</p>
-<p>McGill University</p>
-<p>2017</p>
-<ul>
-<li>Conducted a research projectexamining whether plant-mycorrhizae symbiosis can help plants resist conditions of high soil salinity and acidity.</li>
-<li>Used a wet lab to grow a number of pea plants to randomly subject to treatments and controls.</li>
-</ul>
+<!-- Lab and/or field research experience (Can be removed or added through commmenting out as per need) -->
+<!-- Lab Experience {data-icon=flask} -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ```{r} -->
+<!-- position_data %>% print_section('lab_experience') -->
+<!-- ``` -->
+<!-- Selected personal project information (selection done using a TRUE-FALSE column in the google doc) -->
 </div>
 </div>
 <div id="selected-personal-projects" class="section level2" data-icon="share-alt">

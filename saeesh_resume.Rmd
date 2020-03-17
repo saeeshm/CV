@@ -4,11 +4,11 @@ author: "Saeesh Mangwani"
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
-    css: ['css/resume.css']
+    css: ['resume.css']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: false
 ---
-<!--- start of code for font awesome--->
+<!--- start of code for importing the font awesome set of styles--->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 <!--- end of code for font awesome--->
 
@@ -17,19 +17,15 @@ knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
 )
+
+# Loading libraries
 library(tidyverse)
 library(glue)
 library(rmarkdown)
 
-# ======================================================================
-# These variables determine how the the data is loaded and how the exports are
-# done.
+# Setting variables to help with loading data
 
-# Is data stored in google sheets? If no data will be gather from the csvs/
-# folder in project
-using_googlesheets <- TRUE
-
-# Just the copied URL from the sheet
+# url for the google sheets 
 positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1Z3Eu2Tjx7zgI9mTzMUi_EhieOOELmJKj7CXjGc9Iyfg/edit?usp=sharing"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
@@ -63,9 +59,11 @@ position_data <- position_data %>%
   filter(in_resume)
 ```
 
+<!-- Creating the aside section of the CV  -->
 Aside
 ================================================================================
 
+<!-- Using contact data pulled from the google docs to glue an html list that adds contact info -->
 ## CONTACT
 
 ```{r}
@@ -73,12 +71,14 @@ contact_info %>%
   glue_data("- <i class='fa fa-{icon}'></i> {contact}", .sep="\n")
 ```
 
+<!-- Adding skills the same way -->
 ## SKILLS
 ```{r}
 skills %>% 
   glue_data("- <i class='{icon}'></i> {skill} \n\n")
 ```
 
+<!-- # Adding languages manually -->
 ## LANGUAGES
 
 **English:** Native
@@ -89,16 +89,19 @@ skills %>%
 
 <br>
 
-<!-- Disclaimer {#disclaimer} -->
-<!-- -------------------------------------------------------------------------------- -->
+<!-- # Adding an acknowledgement section (kept the disclaimer tag so as to not have to over-edit the css) -->
+Acknowledgement {#disclaimer}
+--------------------------------------------------------------------------------
 
-<!-- This resume was developed using the R package [**pagedown**](https://github.com/rstudio/pagedown). -->
+This resume was developed using the R package [**pagedown**](https://github.com/rstudio/pagedown).
 
-<!-- Last updated on `r Sys.Date()`. -->
+Last updated on `r Sys.Date()`.
 
+<!-- The main body of the cv -->
 Main
 ================================================================================
 
+<!-- # Name and description -->
 Saeesh Mangwani {#title}
 --------------------------------------------------------------------------------
 
@@ -106,6 +109,7 @@ Saeesh Mangwani {#title}
 print_text_block(text_blocks, 'intro')
 ```
 
+<!-- Education information -->
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
@@ -113,6 +117,7 @@ Education {data-icon=graduation-cap data-concise=true}
 position_data %>% print_section('education')
 ```
 
+<!-- Selected ork experience information (Selection done using a TRUE-FALSE column in the google doc) -->
 Selected Work Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
@@ -120,18 +125,21 @@ Selected Work Experience {data-icon=suitcase}
 position_data %>% print_section('work_experience')
 ```
 
-<!-- GIS Experience {data-icon=globe} -->
-<!-- -------------------------------------------------------------------------------- -->
-<!-- ```{r} -->
-<!-- position_data %>% print_section('gis_experience') -->
-<!-- ``` -->
-
-Lab Experience {data-icon=flask}
+<!-- GIS Experience (Can be removed or added through commmenting out as per need) -->
+GIS Experience {data-icon=globe}
 --------------------------------------------------------------------------------
 ```{r}
-position_data %>% print_section('lab_experience')
+position_data %>% print_section('gis_experience')
 ```
 
+<!-- Lab and/or field research experience (Can be removed or added through commmenting out as per need) -->
+<!-- Lab Experience {data-icon=flask} -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ```{r} -->
+<!-- position_data %>% print_section('lab_experience') -->
+<!-- ``` -->
+
+<!-- Selected personal project information (selection done using a TRUE-FALSE column in the google doc) -->
 Selected Personal Projects {data-icon=share-alt}
 --------------------------------------------------------------------------------
 ```{r}

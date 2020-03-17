@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat|Quattrocento&display=swap');
+/*
+Author: Beatriz Milz, adapted for use by Saeesh Mangwani
+Date: 2020-03-17
+Description: The CSS used for styling the CV
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Quattrocento&display=swap');
 
 @page{
   size: letter portrait;
@@ -24,7 +30,7 @@
 
   /* XXX: using px for very good precision control */
   --decorator-outer-offset-top: 10px;
-  --decorator-outer-offset-left: -5.5px;
+  --decorator-outer-offset-left: -5px;
   --decorator-border-width: 1px;
   --decorator-outer-dim: 9px;
   --decorator-border: 1px solid #ccc;
@@ -32,7 +38,7 @@
   --row-blocks-padding-top: 0.5rem;
   --date-block-width: 0.7in;
 
-  --main-blocks-title-icon-offset-left: calc(-17pt - 0.25 * var(--root-font-size));
+  --main-blocks-title-icon-offset-left: calc(-18pt - 0.25 * var(--root-font-size));
 
   --viewer-background-color: #dcdcdc;
   --viewer-pages-spacing: 12px;
