@@ -6,7 +6,7 @@ output:
   pagedown::html_resume:
     css: ['resume.css']
     # set it to true for a self-contained HTML page but it'll take longer to render
-    self_contained: false
+    self_contained: true
 ---
 <!--- start of code for importing the font awesome set of styles--->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
